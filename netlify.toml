@@ -1,0 +1,18 @@
+[build]
+  # Publish directory is where the HTML files are located
+  publish = "Mistica New Generation"
+  
+  # No build command needed for static HTML
+  command = ""
+
+# Redirect rules for Netlify
+[[redirects]]
+  from = "/"
+  to = "/indexReal.htm"
+  status = 200
+
+# Handle .htm files
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 404

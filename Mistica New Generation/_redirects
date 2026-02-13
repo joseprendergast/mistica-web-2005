@@ -1,0 +1,6 @@
+# Netlify redirects file (placed in publish directory)
+# Redirect root to main page
+/ /indexReal.htm 200
+
+# Handle .htm extension properly
+/*.htm /:splat.htm 200

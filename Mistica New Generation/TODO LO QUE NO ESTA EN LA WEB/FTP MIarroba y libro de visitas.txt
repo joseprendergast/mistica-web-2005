@@ -1,0 +1,52 @@
+www.mistica.tk redirecciona a www.mistica.webcindario.com
+
+Host FTP: ftp.webcindario.com
+Login/Usuario: mistica
+Contraseña: mistica
+
+Para acceder al administrador WebFTP haga clic en la siguiente URL:
+
+http://miarroba.com/espacio/webftp.php?id=496376
+
+Para más información, sobre la administración MySQL, PHP, espacio usado en cualquier momento puede usar el panel de control del espacio web, que se encuentra en la siguiente URL:
+
+http://miarroba.com/espacio/admin.php?id=496376
+
+
+**********************************************************
+
+Datos del libro:
+
+Identificador del contador: 97979
+Nombre del propietario del libro: MISTICA
+Dirección de la página web: http://misticametal.webcindario.com/main.htm
+
+Direcciones URL del libro de visitas:
+
+Normal: http://miarroba.com/libros/leer.php?id=97979
+Abreviada: http://librosdevisitas.com/?97979
+
+Configuración visual del Libro de visitas:
+
+Tipo de fondo, Color Solido: #
+Texto Barra Titulo: #FFFF00
+Fondo Barra Titulo: #000000
+Texto Tabla: #7F0000
+Fondo Tabla: #DDDDDD
+Color Hipervinculo: #FF0000
+
+Codigo HTML Leer Libro de Visitas.
+
+Copie el siguiente codigo y peguelo en su página web:
+<!-- INICIO codigo libros.miarroba.com -->
+<a href="http://miarroba.com/libros/leer.php?id=97979" target="_blank"><b>Leer mi libro de visitas</b></a>
+<!-- FIN codigo libros.miarroba.com -->
+
+Codigo HTML Firmar Libro de visitas (Opcional).
+
+Copie el siguiente codigo en su página web:
+<!-- INICIO codigo libros.miarroba.com -->
+<a href="http://miarroba.com/libros/firmar.php?id=97979" target="_blank"><b>Firmar mi libro de visitas</b></a>
+<!-- FIN codigo libros.miarroba.com -->
+ 
+
