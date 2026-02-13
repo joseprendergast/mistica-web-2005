@@ -5,14 +5,25 @@
   # No build command needed for static HTML
   command = ""
 
+# Context-specific configuration for path prefix
+[context.production]
+  command = ""
+  
 # Redirect rules for Netlify
+# Root redirect to main page
 [[redirects]]
   from = "/"
   to = "/indexReal.htm"
   status = 200
 
-# Handle .htm files
+# Handle .htm files properly
+[[redirects]]
+  from = "/*.htm"
+  to = "/:splat.htm"
+  status = 200
+
+# Fallback for 404s
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/indexReal.htm"
   status = 404

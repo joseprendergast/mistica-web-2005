@@ -4,3 +4,7 @@
 
 # Handle .htm extension properly
 /*.htm /:splat.htm 200
+
+# Ensure all paths work correctly
+/index.htm /indexReal.htm 200
+/default.htm /indexReal.htm 200
