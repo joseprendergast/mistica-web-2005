@@ -291,6 +291,40 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
+/* Links Section */
+.links {
+    padding: 4rem 0;
+}
+
+.links h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+}
+
+.links-content {
+    text-align: center;
+}
+
+.link-item {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+    margin: 0.5rem;
+}
+
+.link-item:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
 /* Contact Section */
 .contact {
     padding: 4rem 0;
