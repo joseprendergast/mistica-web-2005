@@ -22,6 +22,12 @@
   to = "/:splat.htm"
   status = 200
 
+# 2025 version routes
+[[redirects]]
+  from = "/2025/*"
+  to = "/2025/:splat"
+  status = 200
+
 # Fallback for 404s
 [[redirects]]
   from = "/*"

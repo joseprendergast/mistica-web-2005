@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotos del Grupo - Mistica</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 0;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>MISTICA</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html#home">Inicio</a></li>
+                    <li><a href="index.html#banda">El Grupo</a></li>
+                    <li><a href="index.html#fotos">Fotos</a></li>
+                    <li><a href="index.html#libros">Libros</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="photos" style="padding-top: 4rem;">
+            <div class="container">
+                <a href="index.html#fotos" class="back-link">← Volver a Fotos</a>
+                <h2>Fotos del Grupo</h2>
+                <div class="gallery">
+                    <!-- Placeholder for photos - you can add actual images here -->
+                    <div class="gallery-item">
+                        <img src="../Fotos/Fotos_Grupo/Mist1.jpg" alt="Foto del grupo 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../Fotos/Fotos_Grupo/Mist2.jpg" alt="Foto del grupo 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../Fotos/Fotos_Grupo/Mist3.jpg" alt="Foto del grupo 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../Fotos/Fotos_Grupo/Mist4.jpg" alt="Foto del grupo 4">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../Fotos/Fotos_Grupo/Mist5.jpg" alt="Foto del grupo 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../Fotos/Fotos_Grupo/Mist7.jpg" alt="Foto del grupo 6">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mistica. Todos los derechos reservados.</p>
+            <p><a href="../indexReal.htm" style="color: #FFFF99;">Versión Original 2005</a></p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
