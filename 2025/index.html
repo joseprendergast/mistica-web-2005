@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../Mistica New Generation/favicon.svg">
+    <link rel="icon" type="image/png" href="../Mistica New Generation/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mistica - Banda de Rock</title>
     <link rel="stylesheet" href="css/style.css">
@@ -141,9 +143,26 @@
         <section id="contacto" class="contact">
             <div class="container">
                 <h2>Contacto</h2>
-                <div class="contact-content">
-                    <p>¿Quieres contactar con Mistica?</p>
-                    <a href="mailto:mistica_band@yahoo.es?subject=Contacto%20Mistica" class="contact-button">Enviar Email</a>
+                <div class="contact-form-container">
+                    <form id="contactForm" onsubmit="return sendContactMessage();">
+                        <div class="form-group">
+                            <label for="contactName">Tu Nombre:</label>
+                            <input type="text" id="contactName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Tu Email (opcional):</label>
+                            <input type="email" id="contactEmail" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Tu Mensaje:</label>
+                            <textarea id="contactMessage" name="message" placeholder="Escribe tu mensaje aqui..." required></textarea>
+                        </div>
+                        <button type="submit" class="contact-button">Enviar Mensaje</button>
+                    </form>
+                    <div id="contactSuccess" class="contact-success" style="display:none;">
+                        <p>¡Gracias por tu mensaje!</p>
+                        <p>Se ha abierto tu cliente de correo para enviar el mensaje.</p>
+                    </div>
                 </div>
             </div>
         </section>

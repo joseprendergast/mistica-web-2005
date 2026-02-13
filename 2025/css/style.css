@@ -338,13 +338,38 @@ body {
     color: var(--accent-color);
 }
 
-.contact-content {
-    text-align: center;
+.contact-form-container {
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.contact-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+.contact-form-container .form-group {
+    margin-bottom: 1.2rem;
+}
+
+.contact-form-container label {
+    display: block;
+    color: var(--accent-color);
+    margin-bottom: 0.4rem;
+    font-weight: bold;
+}
+
+.contact-form-container input[type="text"],
+.contact-form-container input[type="email"],
+.contact-form-container textarea {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #BB0000;
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.contact-form-container textarea {
+    height: 150px;
+    resize: vertical;
 }
 
 .contact-button {
@@ -355,12 +380,25 @@ body {
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
+    font-size: 1rem;
+    border: 2px solid var(--accent-color);
+    cursor: pointer;
+    width: 100%;
     transition: background-color 0.3s;
 }
 
 .contact-button:hover {
     background-color: var(--accent-color);
     color: var(--primary-color);
+}
+
+.contact-success {
+    text-align: center;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    padding: 2rem;
+    border: 2px solid var(--accent-color);
+    border-radius: 5px;
 }
 
 /* Footer */

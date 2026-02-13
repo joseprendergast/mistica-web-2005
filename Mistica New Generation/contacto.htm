@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Contacto - Mistica</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="shortcut icon" href="favicon.ico">
+<style type="text/css">
+<!--
+body {
+	background-color: #660000;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+}
+.contact-container {
+	max-width: 600px;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: rgba(52, 0, 0, 0.8);
+	border: 2px solid #BB0000;
+}
+.contact-title {
+	color: #FFFF99;
+	font-size: 24px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.form-group {
+	margin-bottom: 15px;
+}
+.form-group label {
+	display: block;
+	color: #FFFF99;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+	width: 100%;
+	padding: 8px;
+	border: 1px solid #BB0000;
+	background-color: #340000;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+.form-group textarea {
+	height: 150px;
+	resize: vertical;
+}
+.submit-btn {
+	background-color: #990000;
+	color: #FFFF99;
+	padding: 10px 20px;
+	border: 2px solid #FFFF99;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: bold;
+	width: 100%;
+}
+.submit-btn:hover {
+	background-color: #BB0000;
+}
+.success-message {
+	display: none;
+	background-color: rgba(52, 0, 0, 0.8);
+	border: 2px solid #FFFF99;
+	padding: 20px;
+	text-align: center;
+	color: #FFFF99;
+	font-size: 18px;
+	margin-top: 20px;
+}
+-->
+</style>
+<script>
+function sendMessage() {
+    var name = document.getElementById('contactName').value.trim();
+    var email = document.getElementById('contactEmail').value.trim();
+    var message = document.getElementById('contactMessage').value.trim();
+
+    if (!name) {
+        alert('Por favor, escribe tu nombre.');
+        return false;
+    }
+
+    if (!message) {
+        alert('Por favor, escribe un mensaje.');
+        return false;
+    }
+
+    var subject = 'Contacto Mistica - ' + name;
+    var body = 'Nombre: ' + name + '\n';
+    if (email) {
+        body += 'Email: ' + email + '\n';
+    }
+    body += '\nMensaje:\n' + message;
+
+    window.location.href = 'mailto:von_pependorf@hotmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('successMessage').style.display = 'block';
+
+    return false;
+}
+</script>
+</head>
+
+<body>
+<div align="center">
+  <p><img src="IndexImagenes/MiniMistica.gif" width="397" height="214" border="0" alt="Mistica" style="margin-bottom: 20px;"></p>
+</div>
+
+<div class="contact-container">
+  <div class="contact-title">Contacto</div>
+
+  <form id="contactForm" onsubmit="return sendMessage();">
+    <div class="form-group">
+      <label for="contactName">Tu Nombre:</label>
+      <input type="text" id="contactName" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="contactEmail">Tu Email (opcional):</label>
+      <input type="email" id="contactEmail" name="email">
+    </div>
+
+    <div class="form-group">
+      <label for="contactMessage">Tu Mensaje:</label>
+      <textarea id="contactMessage" name="message" placeholder="Escribe tu mensaje aqui..." required></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Enviar Mensaje</button>
+  </form>
+
+  <div id="successMessage" class="success-message">
+    <p>¡Gracias por tu mensaje!</p>
+    <p>Se ha abierto tu cliente de correo para enviar el mensaje.</p>
+  </div>
+</div>
+
+</body>
+</html>

@@ -29,6 +29,36 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Contact form
+function sendContactMessage() {
+    var name = document.getElementById('contactName').value.trim();
+    var email = document.getElementById('contactEmail').value.trim();
+    var message = document.getElementById('contactMessage').value.trim();
+
+    if (!name) {
+        alert('Por favor, escribe tu nombre.');
+        return false;
+    }
+    if (!message) {
+        alert('Por favor, escribe un mensaje.');
+        return false;
+    }
+
+    var subject = 'Contacto Mistica - ' + name;
+    var body = 'Nombre: ' + name + '\n';
+    if (email) {
+        body += 'Email: ' + email + '\n';
+    }
+    body += '\nMensaje:\n' + message;
+
+    window.location.href = 'mailto:von_pependorf@hotmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('contactSuccess').style.display = 'block';
+
+    return false;
+}
+
 // Add scroll effect to navbar
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
