@@ -2,21 +2,219 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Documento sin t&iacute;tulo</title>
+<title>Libro de Visitas - Mistica</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="shortcut icon" href="favicon.ico">
 <style type="text/css">
 <!--
 body {
 	background-color: #660000;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+}
+.guestbook-container {
+	max-width: 600px;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: rgba(52, 0, 0, 0.8);
+	border: 2px solid #BB0000;
+}
+.guestbook-title {
+	color: #FFFF99;
+	font-size: 24px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.form-group {
+	margin-bottom: 15px;
+}
+.form-group label {
+	display: block;
+	color: #FFFF99;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+.form-group input[type="text"],
+.form-group textarea {
+	width: 100%;
+	padding: 8px;
+	border: 1px solid #BB0000;
+	background-color: #340000;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+.form-group textarea {
+	height: 100px;
+	resize: vertical;
+}
+.submit-btn {
+	background-color: #990000;
+	color: #FFFF99;
+	padding: 10px 20px;
+	border: 2px solid #FFFF99;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: bold;
+	width: 100%;
+}
+.submit-btn:hover {
+	background-color: #BB0000;
+}
+.signatures {
+	margin-top: 30px;
+	border-top: 2px solid #BB0000;
+	padding-top: 20px;
+}
+.signature-item {
+	background-color: rgba(52, 0, 0, 0.6);
+	padding: 15px;
+	margin-bottom: 15px;
+	border-left: 3px solid #FFFF99;
+}
+.signature-name {
+	color: #FFFF99;
+	font-weight: bold;
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+.signature-message {
+	color: #FFFFFF;
+	margin-bottom: 5px;
+}
+.signature-date {
+	color: #AAAAAA;
+	font-size: 12px;
+	font-style: italic;
+}
+.read-link {
+	text-align: center;
+	margin-top: 20px;
+}
+.read-link a {
+	color: #FFFF99;
+	text-decoration: underline;
+	font-size: 14px;
 }
 -->
-</style></head>
+</style>
+<script>
+// Simple guestbook using localStorage (client-side only)
+function saveSignature() {
+    const name = document.getElementById('visitorName').value.trim();
+    const message = document.getElementById('visitorMessage').value.trim();
+    
+    if (!name) {
+        alert('Por favor, escribe tu nombre.');
+        return false;
+    }
+    
+    if (!message) {
+        alert('Por favor, escribe un mensaje.');
+        return false;
+    }
+    
+    // Get existing signatures
+    let signatures = JSON.parse(localStorage.getItem('misticaGuestbook') || '[]');
+    
+    // Add new signature
+    const newSignature = {
+        name: name,
+        message: message,
+        date: new Date().toLocaleDateString('es-ES', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        })
+    };
+    
+    signatures.unshift(newSignature); // Add to beginning
+    
+    // Keep only last 50 signatures
+    if (signatures.length > 50) {
+        signatures = signatures.slice(0, 50);
+    }
+    
+    // Save to localStorage
+    localStorage.setItem('misticaGuestbook', JSON.stringify(signatures));
+    
+    // Clear form
+    document.getElementById('visitorName').value = '';
+    document.getElementById('visitorMessage').value = '';
+    
+    // Show success message
+    alert('¡Gracias por firmar nuestro libro de visitas!');
+    
+    // Reload signatures
+    displaySignatures();
+    
+    return false;
+}
+
+function displaySignatures() {
+    const signatures = JSON.parse(localStorage.getItem('misticaGuestbook') || '[]');
+    const container = document.getElementById('signaturesContainer');
+    
+    if (signatures.length === 0) {
+        container.innerHTML = '<p style="color: #AAAAAA; text-align: center;">Aún no hay firmas. ¡Sé el primero en firmar!</p>';
+        return;
+    }
+    
+    container.innerHTML = signatures.map(sig => `
+        <div class="signature-item">
+            <div class="signature-name">${escapeHtml(sig.name)}</div>
+            <div class="signature-message">${escapeHtml(sig.message)}</div>
+            <div class="signature-date">${sig.date}</div>
+        </div>
+    `).join('');
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Load signatures on page load
+window.onload = function() {
+    displaySignatures();
+};
+</script>
+</head>
 
 <body>
-<img src="LibrosImagenes/Libros.gif" width="286" height="287" border="0" usemap="#Map">
-<map name="Map">
-  <area shape="poly" coords="57,40,200,39,201,81,56,79" href="http://miarroba.com/libros/firmar.php?id=97979" target="principal">
-  <area shape="poly" coords="60,128,163,128,164,175,57,174" href="http://miarroba.com/libros/leer.php?id=97979" target="principal">
-</map>
+<div align="center">
+  <img src="LibrosImagenes/Libros.gif" width="286" height="287" border="0" alt="Libro de Visitas" style="margin-bottom: 20px;">
+</div>
+
+<div class="guestbook-container">
+  <div class="guestbook-title">Libro de Visitas</div>
+  
+  <form onsubmit="return saveSignature();">
+    <div class="form-group">
+      <label for="visitorName">Tu Nombre:</label>
+      <input type="text" id="visitorName" name="name" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="visitorMessage">Tu Mensaje:</label>
+      <textarea id="visitorMessage" name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+    </div>
+    
+    <button type="submit" class="submit-btn">Firmar el Libro</button>
+  </form>
+  
+  <div class="signatures">
+    <div class="guestbook-title" style="font-size: 18px; margin-bottom: 15px;">Firmas Anteriores</div>
+    <div id="signaturesContainer">
+      <!-- Signatures will be loaded here -->
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
