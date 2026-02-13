@@ -8,15 +8,86 @@
 <!--
 body {
 	background-color: #660000;
+	margin: 0;
+	padding: 0;
+}
+.nav-container {
+	position: relative;
+	display: inline-block;
+	margin: 20px 0;
+}
+.nav-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: rgba(0, 0, 0, 0.6);
+	color: #FFFF99;
+	border: 2px solid #FFFF99;
+	font-size: 30px;
+	padding: 15px 20px;
+	cursor: pointer;
+	text-decoration: none;
+	user-select: none;
+	transition: background-color 0.3s;
+	z-index: 10;
+}
+.nav-arrow:hover {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+.nav-arrow.left {
+	left: 20px;
+}
+.nav-arrow.right {
+	right: 20px;
+}
+.nav-arrow.disabled {
+	opacity: 0.3;
+	cursor: not-allowed;
+}
+.photo-info {
+	color: #FFFF99;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 10px 0;
+	font-size: 14px;
 }
 -->
-</style></head>
+</style>
+<script src="../photo-navigation.js"></script>
+</head>
 
 <body>
 <div align="center">
-  <p><img src="9%20copia.jpg" width="800" height="600"></p>
+  <div class="nav-container">
+    <a href="#" class="nav-arrow left" onclick="if(window.photoNav) window.photoNav.prev(); return false;" id="prevArrow">&lt;</a>
+    <img src="9%20copia.jpg" width="800" height="600" id="photoImage">
+    <a href="#" class="nav-arrow right" onclick="if(window.photoNav) window.photoNav.next(); return false;" id="nextArrow">&gt;</a>
+  </div>
+  <div class="photo-info">
+    <span id="photoCounter">9 / 20</span>
+  </div>
   <p>&nbsp;</p>
   <p><img src="../../IndexImagenes/MiniMistica.gif" width="397" height="214"></p>
 </div>
+<script>
+// Update navigation arrows and counter
+(function() {
+    const currentFile = window.location.pathname.split('/').pop();
+    const currentNum = parseInt(currentFile.replace('.htm', ''));
+    const totalPhotos = 20;
+    
+    // Update counter
+    document.getElementById('photoCounter').textContent = currentNum + ' / ' + totalPhotos;
+    
+    // Update arrow states
+    if (currentNum === 1) {
+        document.getElementById('prevArrow').classList.add('disabled');
+        document.getElementById('prevArrow').onclick = function() { return false; };
+    }
+    if (currentNum === totalPhotos) {
+        document.getElementById('nextArrow').classList.add('disabled');
+        document.getElementById('nextArrow').onclick = function() { return false; };
+    }
+})();
+</script>
 </body>
 </html>
